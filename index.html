@@ -1,100 +1,51 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>¿Quieres ser mi San Valentín?</title>
-<style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¿Quieres ser mi San Valentín?</title>
+  <style>
     body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background: url("1.jpeg") no-repeat center center fixed;
-        background-size: cover;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        text-align: center;
-        overflow: hidden;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: url("1.jpeg") no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
     }
     .card {
-        background: white;
-        padding: 40px;
-        border-radius: 20px;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-        max-width: 400px;
-        animation: aparecer 1.2s ease;
-    }
-    h1 {
-        color: #e91e63;
-    }
-    p {
-        font-size: 18px;
-        color: #555;
+      background: rgba(255,255,255,0.8);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      max-width: 400px;
     }
     button {
-        padding: 12px 25px;
-        margin: 10px;
-        border: none;
-        border-radius: 25px;
-        font-size: 16px;
-        cursor: pointer;
-        transition: 0.3s;
+      padding: 12px 25px;
+      margin: 10px;
+      border: none;
+      border-radius: 25px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
     }
     .si {
-        background-color: #e91e63;
-        color: white;
+      background: #e91e63;
+      color: white;
     }
-    .si:hover {
-        background-color: #d81b60;
-        transform: scale(1.1);
-    }
-    .no {
-        background-color: #ccc;
-    }
-    .no:hover {
-        position: absolute;
-        top: calc(10% + (80% * random()));
-        left: calc(10% + (80% * random()));
-    }
-    @keyframes aparecer {
-        from {opacity: 0; transform: translateY(30px);}
-        to {opacity: 1; transform: translateY(0);}
-    }
-</style>
+  </style>
 </head>
 <body>
 
 <div class="card">
-    <h1>💖 ¿Quieres ser mi San Valentín? 💖</h1>
-    <p>[Su Nombre], desde que llegaste a mi vida todo es más bonito…  
-    ¿Te gustaría compartir este 14 conmigo? 🌹</p>
-
-    <button class="si" onclick="respuesta()">Sí 💘</button>
-    <button class="no" onclick="mover()">No 🙈</button>
+  <h1>💖 ¿Quieres ser mi San Valentín? 💖</h1>
+  <p>[Su Nombre], desde que llegaste a mi vida todo es más bonito…</p>
+  <button class="si">Sí 💘</button>
+  <button>No 🙈</button>
 </div>
-
-<script>
-function respuesta() {
-    document.body.innerHTML = `
-        <div style="display:flex;justify-content:center;align-items:center;height:100vh;background:linear-gradient(135deg,#ff9a9e,#fad0c4);text-align:center;">
-            <div style="background:white;padding:40px;border-radius:20px;box-shadow:0 10px 25px rgba(0,0,0,0.2);">
-                <h1 style="color:#e91e63;">¡Sabía que dirías que sí! 💕</h1>
-                <p>Prometo hacer de este día algo inolvidable 🌹✨</p>
-            </div>
-        </div>
-    `;
-}
-
-function mover() {
-    const btn = document.querySelector('.no');
-    btn.style.position = "absolute";
-    btn.style.top = Math.random() * window.innerHeight + "px";
-    btn.style.left = Math.random() * window.innerWidth + "px";
-}
-</script>
 
 </body>
 </html>
-
-
