@@ -1,52 +1,77 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>¿Quieres ser mi San Valentín?</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: url("fondo.jpeg") no-repeat center center fixed;
-      background-size: cover;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      text-align: center;
-    }
-    .card {
-      background: rgba(255,255,255,0.8);
-      padding: 40px;
-      border-radius: 20px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-      max-width: 400px;
-    }
-    button {
-      padding: 12px 25px;
-      margin: 10px;
-      border: none;
-      border-radius: 25px;
-      font-size: 16px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    .si {
-      background: #e91e63;
-      color: white;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>¿Quieres ser mi San Valentín?</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-image: url("fondo.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+.card {
+    background: rgba(255,255,255,0.85);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+button {
+    padding: 12px 25px;
+    margin: 10px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.si {
+    background: #e91e63;
+    color: white;
+}
+
+.no {
+    background: #ccc;
+}
+</style>
 </head>
+
 <body>
 
 <div class="card">
-  <h1>💖 ¿Quieres ser mi San Valentín? 💖</h1>
-  <p>[Su Nombre], desde que llegaste a mi vida todo es más bonito…</p>
-  <button class="si">Sí 💘</button>
-  <button>No 🙈</button>
+    <h1>💖 ¿Quieres ser mi San Valentín? 💖</h1>
+    <button class="si" onclick="aceptar()">Sí 💘</button>
+    <button class="no" id="noBtn">No 🙈</button>
 </div>
+
+<script>
+function aceptar() {
+    alert("💖 Sabía que dirías que sí 💖");
+}
+
+const noBtn = document.getElementById("noBtn");
+
+noBtn.addEventListener("mouseover", function() {
+    const x = Math.random() * (window.innerWidth - 100);
+    const y = Math.random() * (window.innerHeight - 50);
+    noBtn.style.position = "absolute";
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+});
+</script>
 
 </body>
 </html>
-
