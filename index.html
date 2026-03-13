@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Para Fátima 💛 | Feliz inicio de la primavera</title>
+  <title>Feliz inicio de la primavera 💛</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -56,7 +56,7 @@
 
     .title-wrap {
       position: absolute;
-      top: 30px;
+      top: 12px;
       width: 100%;
       text-align: center;
       z-index: 20;
@@ -97,8 +97,8 @@
       height: 200px;
       z-index: 10;
       opacity: 1;
-      animation: envelopeFade 1s ease forwards;
-      animation-delay: 6.8s;
+      /* animation activada al hacer click */
+      
       perspective: 1200px;
     }
 
@@ -135,8 +135,8 @@
       background: linear-gradient(180deg, #fff1bf, #ffd95a);
       clip-path: polygon(0 0, 50% 100%, 100% 0);
       transform-origin: top;
-      animation: flapOpen 1.3s ease forwards;
-      animation-delay: 1.6s;
+      /* animación activada al hacer click */
+      
       z-index: 5;
       border-top-left-radius: 18px;
       border-top-right-radius: 18px;
@@ -161,8 +161,8 @@
       border: 1px solid #f0dfaa;
       box-shadow: 0 8px 18px rgba(0,0,0,0.06);
       clip-path: inset(100% 0 0 0 round 14px);
-      animation: letterRise 1.8s ease forwards;
-      animation-delay: 2.3s;
+      /* animación activada al hacer click */
+      
     }
 
     @keyframes letterRise {
@@ -238,6 +238,7 @@
       background: linear-gradient(to bottom, #2e7d32, #4caf50);
       z-index: 5;
       animation: growStem 2.2s ease forwards;
+      animation-play-state: paused;
       animation-delay: 7.2s;
     }
 
@@ -259,6 +260,7 @@
       border-radius: 90% 0 90% 0;
       transform: rotate(-28deg) scale(0);
       animation: leafLeft .7s ease forwards;
+      animation-play-state: paused;
       animation-delay: 8.5s;
     }
 
@@ -268,6 +270,7 @@
       border-radius: 0 90% 0 90%;
       transform: rotate(28deg) scale(0);
       animation: leafRight .7s ease forwards;
+      animation-play-state: paused;
       animation-delay: 8.9s;
     }
 
@@ -293,6 +296,7 @@
       background: radial-gradient(circle at 35% 35%, #fff59d 0%, #fdd835 48%, #fbc02d 100%);
       box-shadow: 0 0 25px rgba(255, 215, 0, 0.28);
       animation: bloom .55s ease forwards;
+      animation-play-state: paused;
     }
 
     @keyframes bloom { to { opacity: 1; transform: scale(1); } }
@@ -318,6 +322,7 @@
       z-index: 9;
       background: radial-gradient(circle at 35% 35%, #8d6e63 0%, #6d4c41 55%, #4e342e 100%);
       animation: centerIn .6s ease forwards;
+      animation-play-state: paused;
       animation-delay: 11.3s;
       box-shadow: 0 0 16px rgba(0,0,0,0.12);
     }
@@ -331,6 +336,7 @@
       z-index: 16;
       transform-origin: left center;
       animation: drawMotion 4.6s ease-in-out forwards;
+      animation-play-state: paused;
       animation-delay: 7s;
     }
 
@@ -410,6 +416,7 @@
       font-size: 22px;
       opacity: 0;
       animation: falling linear infinite;
+      animation-play-state: paused;
       animation-delay: 11.5s;
     }
 
@@ -487,6 +494,7 @@
       box-shadow: 0 18px 35px rgba(0,0,0,0.08);
       opacity: 0;
       animation: fadeUp 1.2s ease forwards;
+      animation-play-state: paused;
       animation-delay: 11.8s;
       z-index: 25;
     }
@@ -548,7 +556,7 @@
 </head>
 <body>
   <div class="scene">
-    <div class="intro-overlay">
+    <div class="intro-overlay" id="introOverlay">
       <div class="intro-card">
         <h1>💛 Para Fátima 💛</h1>
         <p>
@@ -569,7 +577,7 @@
       <div class="subtitle" style="margin-top:8px;font-size:clamp(13px,1.4vw,18px);opacity:0;animation:fadeDown 1.1s ease forwards;animation-delay:1.3s;">Una sorpresa hecha para ti, mi amor ✨</div>
     </div>
 
-    <div class="envelope">
+    <div class="envelope" id="envelope" onclick="openLetter()">
       <div class="env-back"></div>
       <div class="letter">
         <h3>Para ti, mi amor 💌</h3>
@@ -618,13 +626,13 @@
     <div class="message-box">
       <h2>Para Fátima, mi flor más hermosa 💛</h2>
       <p>
-        Así como esta flor amarilla florece con la llegada de la primavera,
+       Así como esta flor amarilla florece con la llegada de la primavera,
         tú haces florecer mi corazón cada día. <strong>Esta flor es tan bella como tú</strong>,
         pero aun así se queda corta… porque no existe nada más bonito que tu sonrisa,
         tu ternura y la forma en que iluminas mi vida.
         <br><br>
         Gracias por ser mi primavera en cualquier estación. 🌼✨
-        <span class="signature">Con mucho amor, para ti 💌</span>
+        <span class="signature">Con mucho amor, para ti 💌
       </p>
     </div>
 
@@ -632,7 +640,7 @@
       <source src="music.mp3" type="audio/mpeg">
     </audio>
 
-    <div class="music-btn" onclick="toggleMusic()">🎵 Tocar música</div>
+    <div class="music-btn" onclick="toggleMusic(event)">🎵 Tocar música</div>
 
     <div class="ground"></div>
   </div>
@@ -640,9 +648,13 @@
   <script>
     const audio = document.getElementById('bgMusic');
     const musicBtn = document.querySelector('.music-btn');
+    const introOverlay = document.getElementById('introOverlay');
+    const envelope = document.getElementById('envelope');
     let isPlaying = false;
+    let opened = false;
 
-    function toggleMusic() {
+    function toggleMusic(event) {
+      if (event) event.stopPropagation();
       if (!audio) return;
       if (!isPlaying) {
         audio.play().then(() => {
@@ -657,7 +669,62 @@
         musicBtn.textContent = '🎵 Tocar música';
       }
     }
+
+    function runLater(selector, delay = 0) {
+      const el = document.querySelector(selector);
+      if (!el) return;
+      setTimeout(() => el.style.animationPlayState = 'running', delay);
+    }
+
+    function openLetter() {
+      if (opened) return;
+      opened = true;
+
+      if (introOverlay) introOverlay.style.animation = 'overlayFade 0.9s ease forwards';
+      envelope.style.pointerEvents = 'none';
+
+      const flap = envelope.querySelector('.env-flap');
+      const letter = envelope.querySelector('.letter');
+
+      flap.style.animation = 'flapOpen 1.2s ease forwards';
+
+      setTimeout(() => {
+        letter.style.animation = 'letterRise 1.8s ease forwards';
+      }, 650);
+
+      setTimeout(() => {
+        envelope.style.animation = 'envelopeFade 1s ease forwards';
+      }, 2600);
+
+      runLater('.pencil', 2300);
+      runLater('.stem', 2500);
+      runLater('.leaf.left', 4000);
+      runLater('.leaf.right', 4400);
+      document.querySelectorAll('.petal').forEach((petal, index) => {
+        setTimeout(() => petal.style.animationPlayState = 'running', 4800 + index * 180);
+      });
+      runLater('.center', 6400);
+      runLater('.message-box', 6900);
+      document.querySelectorAll('.fall').forEach((item) => {
+        setTimeout(() => item.style.animationPlayState = 'running', 6500);
+      });
+
+      if (!isPlaying) toggleMusic();
+    }
   </script>
   </div>
 </body>
 </html>
+
+
+
+    <p>
+        Así como esta flor amarilla florece con la llegada de la primavera,
+        tú haces florecer mi corazón cada día. <strong>Esta flor es tan bella como tú</strong>,
+        pero aun así se queda corta… porque no existe nada más bonito que tu sonrisa,
+        tu ternura y la forma en que iluminas mi vida.
+        <br><br>
+        Gracias por ser mi primavera en cualquier estación. 🌼✨
+        <span class="signature">Con mucho amor, para ti 💌</span>
+      </p>
+
